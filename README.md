@@ -1,21 +1,16 @@
-# Hang
+# Hangman
 
-**TODO: Add description**
+## Introduction
+This is the elixir implementation of the classic Hangman game. It uses genserver and supervisor for fault tolerance.
+## Requirements
+Elixir version - 1.6.1
+Mix
+## Instructions
+1. Clone the hangman repository.
+2. Get your terminal into the hangman directory.
+3. Enter command `iex -S mix`, to compile the hangman game.
+4. Enter command `Super.start_link` to start the process.
+5. Now, the last `Game.start`.
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `hang` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:hang, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/hang](https://hexdocs.pm/hang).
-
+Enjoy and have fun.
+Note: This is free to use and modify.
