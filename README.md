@@ -9,6 +9,8 @@ This is the Elixir implementation of the classic Hangman game. It uses genserver
 
 ## Instructions
 1. Clone the hangman repository.
+2. Open `hangman/lib/loadfile.ex`
+3. Edit parameter of Line 10, File.read(), to full location of `words1.txt` file according to path in your system.
 2. Get your terminal into the hangman directory.
 3. Get your terminal to full screen.
 4. Enter command `iex -S mix`, to compile the hangman game.
