@@ -1,7 +1,7 @@
 # Hangman
 
 ## Introduction
-This is the elixir implementation of the classic Hangman game. It uses genserver and supervisor for fault tolerance.
+This is the Elixir implementation of the classic Hangman game. It uses genserver and supervisor for fault tolerance.
 ## Requirements
 1. Elixir version - 1.6.1
 2. Mix
