@@ -1,0 +1,8 @@
+hangman
+aviabird
+elixir
+gringotts
+internet
+startup
+ubuntu
+process
