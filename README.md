@@ -10,11 +10,12 @@ This is the elixir implementation of the classic Hangman game. It uses genserver
 ## Instructions
 1. Clone the hangman repository.
 2. Get your terminal into the hangman directory.
-3. Enter command `iex -S mix`, to compile the hangman game.
-4. Enter command `Super.start_link` to start the process.
-5. Now, the last `Game.start`.
+3. Get your terminal to full screen.
+4. Enter command `iex -S mix`, to compile the hangman game.
+5. Enter command `Super.start_link` to start the process.
+6. Now, the last `Game.start`.
 
-Enjoy and have fun.
+Enjoy and have fun!
 
 ## Development details
 The project is divided into modules for different functionality.
