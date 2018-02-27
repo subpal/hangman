@@ -16,4 +16,14 @@ This is the elixir implementation of the classic Hangman game. It uses genserver
 
 Enjoy and have fun.
 
+## Development details
+The project is divided into modules for different functionality.
+
+There are three basic modules :-
+
+1. Hangman.Play : starts the game and uses functions of other necessary modules when required.
+2. Hangman.Profile : stores the profile information about players, scores and leaderboard.
+3. Hangman.Loadhangman : reads the file containing words and returns a random word.
+
+
 Note: This is free to use and modify.
