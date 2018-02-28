@@ -28,6 +28,7 @@ defmodule Hangman.Play do
       tup = Hangman.Profile.update_data(0, name)
       ishigh = elem(tup, 0)
       score = elem(tup, 1)
+      IO.puts("\n\t\t\t\t\t\t\tYou couldn't guess : " <> List.to_string(test_list))
 
       if ishigh do
         IO.puts("\n\t\t\t\t\t\t\tCongratulations! You are the highest scorer.")
@@ -53,6 +54,7 @@ defmodule Hangman.Play do
         else
           Hangman.Character.print("Subham", 7 - chances)
           chances = chances - 1
+          IO.puts("\n\t\t\t\t\t\t\t" <> printword(test_list, map))
           IO.puts("\n\t\t\t\t\t\t\tChances left : " <> Integer.to_string(chances))
         end
       end
