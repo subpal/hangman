@@ -15,7 +15,7 @@ defmodule Hangman.Profile do
     end
   end
 
-  defp make_tuple(row) do
+  def make_tuple(row) do
     row = row |> String.codepoints()
     name = Enum.reduce(row, [], fn x, acc -> make_name(x, acc) end) |> List.to_string()
 
@@ -38,7 +38,7 @@ defmodule Hangman.Profile do
     Enum.count(list, fn x -> elem(x, 1) > score end) == 0
   end
 
-  defp update({name, score}, new_name, new_score) do
+  def update({name, score}, new_name, new_score) do
     if new_name == name do
       {name, new_score}
     else

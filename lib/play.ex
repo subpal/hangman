@@ -6,7 +6,7 @@ defmodule Hangman.Play do
     Enum.count(test_list, fn x -> map[x] == nil end) == 0
   end
 
-  def helper_printword(char, acc, map) do
+  defp helper_printword(char, acc, map) do
     if map[char] != nil do
       acc ++ [char]
     else
@@ -17,7 +17,6 @@ defmodule Hangman.Play do
   def printword(test_list, map) do
     list = Enum.reduce(test_list, [], fn x, acc -> helper_printword(x, acc, map) end)
     word = List.to_string(list)
-    IO.puts("\n\t\t\t\t\t\t\t" <> word)
   end
 
   @doc """
@@ -49,7 +48,7 @@ defmodule Hangman.Play do
         if test_map[char] != nil do
           IO.puts("\n\t\t\t\t\t\t\tCorrect move!")
           map = Map.put(map, char, 1)
-          printword(test_list, map)
+          IO.puts("\n\t\t\t\t\t\t\t" <> printword(test_list, map))
           IO.puts("\n\t\t\t\t\t\t\tChances left : " <> Integer.to_string(chances))
         else
           Hangman.Character.print("Subham", 7 - chances)
@@ -91,12 +90,10 @@ defmodule Hangman.Play do
     if ch == 1 do
       name = IO.gets("\n\t\t\t\t\t\t\tEnter your name : ") |> String.trim()
       test_word = Hangman.LoadHangman.getword() |> String.downcase()
-      IO.puts(test_word)
       map = %{}
       test_list = test_word |> String.codepoints()
       test_map = Enum.reduce(test_list, %{}, fn x, acc -> Map.put(acc, x, 1) end)
       chances = 7
-      IO.inspect(name)
       mainloop(chances, test_list, map, test_map, name)
     else
       Hangman.Profile.leaderboard()
