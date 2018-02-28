@@ -34,44 +34,44 @@ defmodule Hangman.Play do
         IO.puts("\n\t\t\t\t\t\t\tCongratulations! You are the highest scorer.")
       end
 
-      IO.puts("\n\t\t\t\t\t\t\tScore : " <> score)
-    end
-
-    char =
-      IO.gets("\n\n\t\t\t\t\t\t\tEnter your letter : ")
-      |> String.trim()
-      |> String.downcase()
-      |> String.codepoints()
-      |> Enum.at(0)
-
-    if map[char] != nil do
-      IO.puts("\n\t\t\t\t\t\t\tYou have already used " <> "'" <> char <> "'")
+      IO.puts("\n\t\t\t\t\t\t\tScore : " <> to_string(score))
     else
-      if test_map[char] != nil do
-        IO.puts("\n\t\t\t\t\t\t\tCorrect move!")
-        map = Map.put(map, char, 1)
-        printword(test_list, map)
-        IO.puts("\n\t\t\t\t\t\t\tChances left : " <> Integer.to_string(chances))
+      char =
+        IO.gets("\n\n\t\t\t\t\t\t\tEnter your letter : ")
+        |> String.trim()
+        |> String.downcase()
+        |> String.codepoints()
+        |> Enum.at(0)
+
+      if map[char] != nil do
+        IO.puts("\n\t\t\t\t\t\t\tYou have already used " <> "'" <> char <> "'")
       else
-        Hangman.Character.print("Subham", 7 - chances)
-        chances = chances - 1
-        IO.puts("\n\t\t\t\t\t\t\tChances left : " <> Integer.to_string(chances))
-      end
-    end
-
-    if ifwon?(test_list, map) do
-      IO.puts("\n\t\t\t\t\t\t\tYou Won!")
-      tup = Hangman.Profile.update_data(1, name)
-      ishigh = elem(tup, 0)
-      score = elem(tup, 1) |> Integer.to_string()
-
-      if ishigh do
-        IO.puts("\n\t\t\t\t\t\t\tCongratulations! You are highest scorer.")
+        if test_map[char] != nil do
+          IO.puts("\n\t\t\t\t\t\t\tCorrect move!")
+          map = Map.put(map, char, 1)
+          printword(test_list, map)
+          IO.puts("\n\t\t\t\t\t\t\tChances left : " <> Integer.to_string(chances))
+        else
+          Hangman.Character.print("Subham", 7 - chances)
+          chances = chances - 1
+          IO.puts("\n\t\t\t\t\t\t\tChances left : " <> Integer.to_string(chances))
+        end
       end
 
-      IO.puts("\n\t\t\t\t\t\t\tScore : " <> score)
-    else
-      mainloop(chances, test_list, map, test_map, name)
+      if ifwon?(test_list, map) do
+        IO.puts("\n\t\t\t\t\t\t\tYou Won!")
+        tup = Hangman.Profile.update_data(1, name)
+        ishigh = elem(tup, 0)
+        score = elem(tup, 1) |> Integer.to_string()
+
+        if ishigh do
+          IO.puts("\n\t\t\t\t\t\t\tCongratulations! You are highest scorer.")
+        end
+
+        IO.puts("\n\t\t\t\t\t\t\tScore : " <> score)
+      else
+        mainloop(chances, test_list, map, test_map, name)
+      end
     end
   end
 
